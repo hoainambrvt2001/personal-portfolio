@@ -1,0 +1,53 @@
+{
+  "printWidth": 120,
+  "tabWidth": 2,
+  "useTabs": false,
+  "singleQuote": false,
+  "semi": true,
+  "trailingComma": "es5",
+  "bracketSpacing": true,
+  "arrowParens": "always",
+  "embeddedLanguageFormatting": "auto",
+  "htmlWhitespaceSensitivity": "ignore",
+  "endOfLine": "lf",
+  "overrides": [
+    {
+      "files": [
+        "*.html",
+        "*.htm"
+      ],
+      "options": {
+        "printWidth": 120
+      }
+    },
+    {
+      "files": [
+        "*.css",
+        "*.scss",
+        "*.less"
+      ],
+      "options": {
+        "singleQuote": false
+      }
+    },
+    {
+      "files": [
+        "*.json",
+        "*.yml",
+        "*.yaml"
+      ],
+      "options": {
+        "printWidth": 120,
+        "singleQuote": false
+      }
+    },
+    {
+      "files": [
+        "gulpfile.js"
+      ],
+      "options": {
+        "singleQuote": true
+      }
+    }
+  ]
+}

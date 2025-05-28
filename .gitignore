@@ -1,0 +1,82 @@
+# -------------------------------------------------------------
+# Git Ignore for Braxton Personal Portfolio project
+# Target stack: HTML5 / CSS / JS (optional Node + Gulp)
+# -------------------------------------------------------------
+
+# -------------------------------------------------------------
+# 1. Dependency directories
+# -------------------------------------------------------------
+node_modules/
+bower_components/
+vendor/              # composer or other PHP packages (if added later)
+
+# -------------------------------------------------------------
+# 2. Build & output artifacts
+# -------------------------------------------------------------
+dist/
+build/
+.tmp/
+.cache/
+.sass-cache/
+# gulp-inline-source cache
+*.gulp.cache/
+
+# -------------------------------------------------------------
+# 3. Logs & reports
+# -------------------------------------------------------------
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+*.log
+
+# Coverage / test
+coverage/
+.nyc_output/
+
+# -------------------------------------------------------------
+# 4. Environment & secrets
+# -------------------------------------------------------------
+.env
+.env.*
+# Local config overrides (php mail, API keys, etc.)
+config.local.php
+
+# -------------------------------------------------------------
+# 5. IDE & editor folders
+# -------------------------------------------------------------
+.vscode/
+.idea/
+*.code-workspace
+*.sublime-project
+*.sublime-workspace
+
+# -------------------------------------------------------------
+# 6. OS / Misc system files
+# -------------------------------------------------------------
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+Icon?
+
+# -------------------------------------------------------------
+# 7. Swap / temp files
+# -------------------------------------------------------------
+*.sw?
+*.tmp
+*~
+# vscode recovery
+*.code-workspace.symlink
+
+# -------------------------------------------------------------
+# 8. Source maps (optional – keep if needed)
+# -------------------------------------------------------------
+*.map
+
+# -------------------------------------------------------------
+# 9. Optional: Ignore high‑res design sources or binaries
+# -------------------------------------------------------------
+/source-files/       # unminified template sources (kept elsewhere)
+/design/*            # Figma/PSD/AI files if added
+
+# End of .gitignore
