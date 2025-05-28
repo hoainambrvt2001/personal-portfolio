@@ -40,31 +40,31 @@ $(function() {
   // --------------------------------------------- //
   // Loader & Loading Animation Start
   // --------------------------------------------- //
-  const content = document.querySelector('body');
+  const content = document.querySelector("body");
   const imgLoad = imagesLoaded(content);
 
-  imgLoad.on('done', instance => {
+  imgLoad.on("done", instance => {
 
     document.getElementById("loaderContent").classList.add("fade-out");
     setTimeout(() => {
       document.getElementById("loaderDemo").classList.add("loaded");
     }, 300);
 
-    gsap.set(".animate-headline", {y: 50, opacity: 0});
+    gsap.set(".animate-headline", { y: 50, opacity: 0 });
     ScrollTrigger.batch(".animate-headline", {
       interval: 0.1,
       batchMax: 4,
       duration: 6,
       onEnter: batch => gsap.to(batch, {
-        opacity: 1, 
+        opacity: 1,
         y: 0,
-        ease: 'sine',
-        stagger: {each: 0.15, grid: [1, 4]}, 
-        overwrite: true
+        ease: "sine",
+        stagger: { each: 0.15, grid: [1, 4] },
+        overwrite: true,
       }),
-      onLeave: batch => gsap.set(batch, {opacity: 1, y: 0, overwrite: true}),
-      onEnterBack: batch => gsap.to(batch, {opacity: 1, y: 0, stagger: 0.15, overwrite: true}),
-      onLeaveBack: batch => gsap.set(batch, {opacity: 0, y: 50, overwrite: true})
+      onLeave: batch => gsap.set(batch, { opacity: 1, y: 0, overwrite: true }),
+      onEnterBack: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.15, overwrite: true }),
+      onLeaveBack: batch => gsap.set(batch, { opacity: 0, y: 50, overwrite: true }),
     });
 
     gsap.from(".promo-image", {
@@ -72,7 +72,7 @@ $(function() {
       x: 30,
       opacity: 0,
       ease: "sine",
-      duration: 1
+      duration: 1,
     });
 
   });
@@ -83,12 +83,14 @@ $(function() {
   // --------------------------------------------- //
   // Lenis Scroll Plugin Start
   // --------------------------------------------- //
-  const lenis = new Lenis()
+  const lenis = new Lenis();
+
   function raf(time) {
-    lenis.raf(time)
-    requestAnimationFrame(raf)
+    lenis.raf(time);
+    requestAnimationFrame(raf);
   }
-  requestAnimationFrame(raf)
+
+  requestAnimationFrame(raf);
   // --------------------------------------------- //
   // Lenis Scroll Plugin End
   // --------------------------------------------- //
@@ -97,14 +99,14 @@ $(function() {
   // Parallax (apply parallax effect to any element with a data-speed attribute) Start
   // ------------------------------------------------------------------------------ //
   gsap.to("[data-speed]", {
-    y: (i, el) => (1 - parseFloat(el.getAttribute("data-speed"))) * ScrollTrigger.maxScroll(window) ,
+    y: (i, el) => (1 - parseFloat(el.getAttribute("data-speed"))) * ScrollTrigger.maxScroll(window),
     ease: "none",
     scrollTrigger: {
       start: 0,
       end: "max",
       invalidateOnRefresh: true,
-      scrub: 0
-    }
+      scrub: 0,
+    },
   });
   // --------------------------------------------- //
   // Parallax End
@@ -119,34 +121,34 @@ $(function() {
     gsap.fromTo(element, {
       opacity: 0,
       y: 50,
-      ease: 'sine',
+      ease: "sine",
     }, {
       y: 0,
       opacity: 1,
       scrollTrigger: {
         trigger: element,
-        toggleActions: 'play none none reverse',
-      }
+        toggleActions: "play none none reverse",
+      },
     });
   });
 
   // Animation Cards Stack
   // Grid 2x
-  gsap.set(".animate-card-2", {y: 100, opacity: 0});
+  gsap.set(".animate-card-2", { y: 100, opacity: 0 });
   ScrollTrigger.batch(".animate-card-2", {
     interval: 0.1,
     batchMax: 2,
     //duration: 6,
     onEnter: batch => gsap.to(batch, {
-      opacity: 1, 
+      opacity: 1,
       y: 0,
-      ease: 'sine',
-      stagger: {each: 0.15, grid: [1, 2]}, 
-      overwrite: true
+      ease: "sine",
+      stagger: { each: 0.15, grid: [1, 2] },
+      overwrite: true,
     }),
-    onLeave: batch => gsap.set(batch, {opacity: 1, y: -10, overwrite: true}),
-    onEnterBack: batch => gsap.to(batch, {opacity: 1, y: 0, stagger: 0.15, overwrite: true}),
-    onLeaveBack: batch => gsap.set(batch, {opacity: 0, y: 100, overwrite: true})
+    onLeave: batch => gsap.set(batch, { opacity: 1, y: -10, overwrite: true }),
+    onEnterBack: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.15, overwrite: true }),
+    onLeaveBack: batch => gsap.set(batch, { opacity: 0, y: 100, overwrite: true }),
   });
   // --------------------------------------------- //
   // Scroll Animations End
@@ -155,23 +157,23 @@ $(function() {
   // --------------------------------------------- //
   // Smooth Scrolling Start
   // --------------------------------------------- //
-  $('a[href*="#"]').not('[href="#"]').not('[href="#0"]').click(function(event) {
-    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+  $("a[href*=\"#\"]").not("[href=\"#\"]").not("[href=\"#0\"]").click(function(event) {
+    if (location.pathname.replace(/^\//, "") == this.pathname.replace(/^\//, "") && location.hostname == this.hostname) {
       var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      target = target.length ? target : $("[name=" + this.hash.slice(1) + "]");
       if (target.length) {
         event.preventDefault();
-        $('html, body').animate({
-          scrollTop: target.offset().top
+        $("html, body").animate({
+          scrollTop: target.offset().top,
         }, 1000, function() {
           var $target = $(target);
           $target.focus();
           if ($target.is(":focus")) {
             return false;
           } else {
-            $target.attr('tabindex','-1');
+            $target.attr("tabindex", "-1");
             $target.focus();
-          };
+          }
         });
       }
     }
@@ -183,11 +185,11 @@ $(function() {
   // --------------------------------------------- //
   // SVG Fallback Start
   // --------------------------------------------- //
-  if(!Modernizr.svg) {
+  if (!Modernizr.svg) {
     $("img[src*='svg']").attr("src", function() {
       return $(this).attr("src").replace(".svg", ".png");
     });
-  };
+  }
   // --------------------------------------------- //
   // SVG Fallback End
   // --------------------------------------------- //
@@ -197,11 +199,11 @@ $(function() {
   // --------------------------------------------- //
   try {
     $.browserSelector();
-    if($("html").hasClass("chrome")) {
+    if ($("html").hasClass("chrome")) {
       $.smoothScroll();
     }
-  } catch(err) {
-  };
+  } catch (err) {
+  }
   // --------------------------------------------- //
   // Chrome Smooth Scroll End
   // --------------------------------------------- //
@@ -209,7 +211,9 @@ $(function() {
   // --------------------------------------------- //
   // Images Moving Ban Start
   // --------------------------------------------- //
-  $("img, a").on("dragstart", function(event) { event.preventDefault(); });
+  $("img, a").on("dragstart", function(event) {
+    event.preventDefault();
+  });
   // --------------------------------------------- //
   // Images Moving Ban End
   // --------------------------------------------- //
@@ -218,24 +222,24 @@ $(function() {
   // Scroll To Top Start
   // --------------------------------------------- //
   var offset = 300,
-      offset_opacity = 1200,
-      scroll_top_duration = 500,
-      $back_to_top = $('.to-top');
+    offset_opacity = 1200,
+    scroll_top_duration = 500,
+    $back_to_top = $(".to-top");
 
-	$(window).on('scroll', function(){
-		( $(this).scrollTop() > offset ) ? $back_to_top.addClass('is-visible') : $back_to_top.removeClass('is-visible fade-out');
-		if( $(this).scrollTop() > offset_opacity ) {
-			$back_to_top.addClass('fade-out');
-		}
-	});
+  $(window).on("scroll", function() {
+    ($(this).scrollTop() > offset) ? $back_to_top.addClass("is-visible") : $back_to_top.removeClass("is-visible fade-out");
+    if ($(this).scrollTop() > offset_opacity) {
+      $back_to_top.addClass("fade-out");
+    }
+  });
 
-	$back_to_top.on('click', function(event){
-		event.preventDefault();
-		$('body,html').animate({
-			scrollTop: 0 ,
-		 	}, scroll_top_duration
-		);
-	});
+  $back_to_top.on("click", function(event) {
+    event.preventDefault();
+    $("body,html").animate({
+        scrollTop: 0,
+      }, scroll_top_duration,
+    );
+  });
   // --------------------------------------------- //
   // Scroll To Top End
   // --------------------------------------------- //
@@ -245,36 +249,36 @@ $(function() {
 // --------------------------------------------- //
 // Color Switch Start
 // --------------------------------------------- //
-const themeBtn = document.querySelector('.color-switcher');
+const themeBtn = document.querySelector(".color-switcher");
 
-function getCurrentTheme(){
-  let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  localStorage.getItem('template.theme') ? theme = localStorage.getItem('template.theme') : null;
+function getCurrentTheme() {
+  let theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  localStorage.getItem("template.theme") ? theme = localStorage.getItem("template.theme") : null;
   return theme;
 }
 
-function loadTheme(theme){
-  const root = document.querySelector(':root');
-  if(theme === "light"){
+function loadTheme(theme) {
+  const root = document.querySelector(":root");
+  if (theme === "light") {
     themeBtn.innerHTML = `<em></em><i class="ph-bold ph-moon-stars"></i>`;
   } else {
     themeBtn.innerHTML = `<em></em><i class="ph-bold ph-sun"></i>`;
   }
-  root.setAttribute('color-scheme', `${theme}`);
-};
+  root.setAttribute("color-scheme", `${theme}`);
+}
 
-themeBtn.addEventListener('click', () => {
+themeBtn.addEventListener("click", () => {
   let theme = getCurrentTheme();
-  if(theme === 'dark'){
-    theme = 'light';
+  if (theme === "dark") {
+    theme = "light";
   } else {
-    theme = 'dark';
+    theme = "dark";
   }
-  localStorage.setItem('template.theme', `${theme}`);
+  localStorage.setItem("template.theme", `${theme}`);
   loadTheme(theme);
 });
 
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener("DOMContentLoaded", () => {
   loadTheme(getCurrentTheme());
 });
 // --------------------------------------------- //
@@ -292,14 +296,14 @@ let tween = gsap.to(".marquee__part", {
   xPercent: -100,
   repeat: -1,
   duration: 5,
-  ease: "linear"
+  ease: "linear",
 })
-.totalProgress(0.5);
+  .totalProgress(0.5);
 
-gsap.set(".marquee__inner", {xPercent: -50});
+gsap.set(".marquee__inner", { xPercent: -50 });
 
 window.addEventListener("scroll", function() {
-  if(window.pageYOffset > currentScroll) {
+  if (window.pageYOffset > currentScroll) {
     isScrollingDown = true;
   } else {
     isScrollingDown = false;
